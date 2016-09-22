@@ -2,4 +2,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+gem 'mecab'
+group :development do
+  gem 'pry-byebug'
+end
