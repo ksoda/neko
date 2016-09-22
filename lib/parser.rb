@@ -20,6 +20,8 @@ class Parser
     line[0, 3] == 'EOS' || line[0, 2] == '* '
   end
 
+  private
+
   def first_words
     proc {|i| i.last.reduce(''){|a,i| a+i.split.first} }
   end

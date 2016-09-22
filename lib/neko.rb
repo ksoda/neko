@@ -1,13 +1,6 @@
 require_relative 'parser'
 
 class Neko
-  def nyas
-    s = 'にゃ'
-    s << (if rand(2).zero? then 'ー' else '〜' end) * rand(3)
-    s << 'ん' if rand(2).zero?
-    s
-  end
-
   def initialize
     @parser = Parser.new
   end
@@ -19,9 +12,22 @@ class Neko
       if idx
         c.insert(idx, nyas)
       else
-        c << nyas
+        c << nyas if flip_coin(2)
       end
     end
     puts cs.join
+  end
+
+  private
+
+  def nyas
+    s = 'にゃ'
+    s << (if flip_coin then 'ー' else '〜' end) * rand(3)
+    s << 'ん' if flip_coin
+    s
+  end
+
+  def flip_coin(n=1)
+    rand(2**n).zero?
   end
 end
