@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+require_relative '../lib/neko'
 
 while gets
-  puts $_.gsub(/(?:。|\.\s)/, '!')
+  ln = $_
+  Neko.new.nekonize(ln)
 end

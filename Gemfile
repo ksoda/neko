@@ -2,7 +2,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'mecab'
+gem 'cabocha'
 group :development do
   gem 'pry-byebug'
 end

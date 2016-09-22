@@ -2,8 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     byebug (9.0.5)
+    cabocha (0.69.1)
     coderay (1.1.1)
-    mecab (0.996)
     method_source (0.8.2)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -18,7 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mecab
+  cabocha
   pry-byebug
 
 BUNDLED WITH

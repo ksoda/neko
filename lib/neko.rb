@@ -1,27 +1,27 @@
-require 'pry'
-require 'mecab'
-module Neko
-  def self.end_of_clause?(ms, last_ms)
-    ms[0] == '記号' && ['助動詞', '動詞', '形容詞'].include?(last_ms[0])
+require_relative 'parser'
+
+class Neko
+  def nyas
+    s = 'にゃ'
+    s << (if rand(2).zero? then 'ー' else '〜' end) * rand(3)
+    s << 'ん' if rand(2).zero?
+    s
   end
 
-  def self.nya
-    ['にゃ', 'にゃー', 'にゃ〜', 'にゃーーーー', 'にゃん', 'にゃーん', 'にゃ〜ん',
-     'にゃー', 'にゃーーー', 'にゃーー' ].sample
+  def initialize
+    @parser = Parser.new
   end
 
-  tagger = MeCab::Tagger.new
-  last_morphems = []
-  while gets
-    n = tagger.parseToNode($_)
-    while n do
-      s = n.surface
-      ms = n.feature.split(',').take(2)
-      print(if end_of_clause?(ms, last_morphems) then nya+s
-            else s
-            end)
-      last_morphems = ms
-      n = n.next
+  def nekonize(x)
+    cs = @parser.chunks(x)
+    cs.each do |c|
+      idx = c.rindex(/[。、」）＞｝]/)
+      if idx
+        c.insert(idx, nyas)
+      else
+        c << nyas
+      end
     end
+    puts cs.join
   end
 end
