@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem 'cabocha'
+gem 'oga'
 group :development do
   gem 'pry-byebug'
 end
