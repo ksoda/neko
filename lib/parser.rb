@@ -11,9 +11,9 @@ class Parser
   def chunks(x)
     tree = parse(x)
     str = tree.toString(CaboCha::FORMAT_LATTICE).force_encoding(Encoding::UTF_8)
-    str.split("\n").chunk{|i|
+    str.split("\n").chunk do |i|
       chunk_separator?(i) && :_separator
-    }.map(&first_words).to_a
+    end.map(&first_words).to_a
   end
 
   def chunk_separator?(line)
@@ -23,6 +23,6 @@ class Parser
   private
 
   def first_words
-    proc {|i| i.last.reduce(''){|a,i| a+i.split.first} }
+    proc { |i| i.last.reduce('') { |a, j| a + j.split.first } }
   end
 end

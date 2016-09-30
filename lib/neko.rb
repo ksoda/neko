@@ -22,12 +22,12 @@ class Neko
 
   def nyas
     s = 'にゃ'
-    s << (if flip_coin then 'ー' else '〜' end) * rand(3)
+    s << (flip_coin ? 'ー' : '〜') * rand(3)
     s << 'ん' if flip_coin
     s
   end
 
-  def flip_coin(n=1)
+  def flip_coin(n = 1)
     rand(2**n).zero?
   end
 end
