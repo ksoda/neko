@@ -5,5 +5,5 @@ require_relative '../lib/neko'
 
 while gets
   ln = $_
-  Neko.new.nekonize(ln)
+  puts Neko.new.nekonize(ln)
 end

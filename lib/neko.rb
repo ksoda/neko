@@ -15,7 +15,7 @@ class Neko
         c << nyas if flip_coin(2)
       end
     end
-    puts cs.join
+    cs.join
   end
 
   private
