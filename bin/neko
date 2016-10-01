@@ -3,6 +3,6 @@ require 'rubygems'
 require 'bundler/setup'
 require_relative '../lib/neko'
 
-while gets
-  puts Neko.new.nekonize $LAST_READ_LINE
+while ln = gets
+  puts Neko.new.nekonize ln
 end

@@ -6,6 +6,7 @@ class Neko
   end
 
   def nekonize(x)
+    return nil if x.nil?
     cs = @parser.chunks(x)
     cs.each do |c|
       idx = c.rindex(/[。、」）＞｝]/)
