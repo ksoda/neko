@@ -13,7 +13,7 @@ class Neko
       if idx
         c.insert(idx, nyas)
       else
-        c << nyas if flip_coin(2)
+        c << nyas if flip_coin(3)
       end
     end
     cs.join
