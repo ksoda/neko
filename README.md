@@ -1,7 +1,6 @@
 # neko
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install cabocha
-bundle
-ruby app/sample.rb
+
+```sh
+docker build -t app_img .
+docker run app_img ruby app/sample.rb
 ```
