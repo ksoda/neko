@@ -3,8 +3,8 @@ FROM ruby:2.5
 ARG CRF_FILE_ID=0B4y35FiV1wh7QVR6VXJ5dWExSTQ
 ARG CABO_CHA_FILE_ID=0B4y35FiV1wh7SDd1Q1dUQkZQaUU
 RUN set -ex; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
     build-essential \
     libmecab-dev \
     mecab \
